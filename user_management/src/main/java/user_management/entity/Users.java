@@ -19,13 +19,13 @@ public class Users {
 	private Long id;
 	
 	@Column(nullable = false, unique = true, length = 50)
-	private String username;
+	private String userName;
 	
 	@Column(nullable = false, length = 75)
 	private String password;
 	
 	@Column(nullable = false, unique = true, length = 13)
-	private int mobile;
+	private Long mobile;
 	
 	@Column(nullable = false, unique = true, length = 100)
 	private String email;
@@ -48,11 +48,26 @@ public class Users {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Users(long id, String username, String password, int mobile, String email, LocalDate dob, Gender gender,
+	public Users(long id, String userName, String password, long mobile, String email, LocalDate dob, Gender gender,
 			String address, String dpUrl) {
 		super();
 		this.id = id;
-		this.username = username;
+		this.userName = userName;
+		this.password = password;
+		this.mobile = mobile;
+		this.email = email;
+		this.dob = dob;
+		this.gender = gender;
+		this.address = address;
+		this.dpUrl = dpUrl;
+	}
+	
+	
+
+	public Users(String userName, String password, long mobile, String email, LocalDate dob, Gender gender,
+			String address, String dpUrl) {
+		super();
+		this.userName = userName;
 		this.password = password;
 		this.mobile = mobile;
 		this.email = email;
@@ -70,12 +85,12 @@ public class Users {
 		this.id = id;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getPassword() {
@@ -86,11 +101,11 @@ public class Users {
 		this.password = password;
 	}
 
-	public int getMobile() {
+	public long getMobile() {
 		return mobile;
 	}
 
-	public void setMobile(int mobile) {
+	public void setMobile(long mobile) {
 		this.mobile = mobile;
 	}
 
@@ -136,10 +151,8 @@ public class Users {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", mobile=" + mobile
+		return "User [id=" + id + ", username=" + userName + ", password=" + password + ", mobile=" + mobile
 				+ ", email=" + email + ", dob=" + dob + ", gender=" + gender + ", address=" + address + ", dpUrl="
 				+ dpUrl + "]";
-	}
-	
-	
+	}	
 }

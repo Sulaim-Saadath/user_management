@@ -1,4 +1,4 @@
-package user_management.controller;
+ package user_management.controller;
 
 import java.util.List;
 
@@ -9,12 +9,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import user_management.dto.UsersRequestDto;
 import user_management.dto.UsersResponseDto;
 
 import user_management.service.UsersService;
 
+@RestController
 public class UsersController {
 	UsersService userService;
 
@@ -29,6 +31,7 @@ public class UsersController {
 		// TODO Auto-generated constructor stub
 	}
 
+	// localhost:8080/register
 	@PostMapping("/register")
 	public String register(@RequestBody UsersRequestDto user) {
 		return userService.register(user);

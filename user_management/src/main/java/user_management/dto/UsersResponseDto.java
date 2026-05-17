@@ -6,7 +6,7 @@ import user_management.entity.Gender;
 
 public class UsersResponseDto {
 	private String username;
-	private int mobile;
+	private long mobile;
 	private String email;
 	private LocalDate dob;
 	private Gender gender;
@@ -18,7 +18,7 @@ public class UsersResponseDto {
 		// TODO Auto-generated constructor stub
 	}
 
-	public UsersResponseDto(String username, int mobile, String email, LocalDate dob, Gender gender, String address,
+	public UsersResponseDto(String username, long mobile, String email, LocalDate dob, Gender gender, String address,
 			String dpUrl) {
 		super();
 		this.username = username;
@@ -38,11 +38,11 @@ public class UsersResponseDto {
 		this.username = username;
 	}
 
-	public int getMobile() {
+	public long getMobile() {
 		return mobile;
 	}
 
-	public void setMobile(int mobile) {
+	public void setMobile(long mobile) {
 		this.mobile = mobile;
 	}
 

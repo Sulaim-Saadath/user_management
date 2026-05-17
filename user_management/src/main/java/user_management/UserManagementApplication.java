@@ -11,3 +11,4 @@ public class UserManagementApplication {
 	}
 
 }
+// localhost:8080/register
