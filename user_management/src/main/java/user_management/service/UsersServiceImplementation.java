@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import user_management.dto.UsersRequestDto;
@@ -14,23 +15,23 @@ import user_management.repository.UsersRepository;
 @Service
 public class UsersServiceImplementation implements UsersService {
 	UsersRepository userRepository;
-
+	PasswordEncoder passwordEncoder;
 	public UsersServiceImplementation() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	@Autowired
-	public UsersServiceImplementation(UsersRepository userRepository) {
+	public UsersServiceImplementation(UsersRepository userRepository, PasswordEncoder passwordEncoder) {
 		super();
 		this.userRepository = userRepository;
+		this.passwordEncoder = passwordEncoder;
 	}
-
 	@Override
 	public String register(UsersRequestDto user) {
 		Users users = new Users();
 		users.setUserName(user.getUserName());
-		users.setPassword(user.getPassword());
+		users.setPassword(passwordEncoder.encode(user.getPassword()));
 		users.setMobile(user.getMobile());
 		users.setEmail(user.getEmail());
 		users.setDob(user.getDob());
